@@ -22,3 +22,10 @@ const table = {
 
 USD = {'MEX': 1, 'UAD': 1, 'EUR': 1}
 // if USD then => return Math.max(arb(MEX, left - 1), arb(USA, left - 1), ARB(EUR, left - 1))
+
+
+const currencies = Object.keys(table);
+
+function findBestArbitrage(startCurrency="USD") {
+  
+}
