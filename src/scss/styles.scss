@@ -4,11 +4,18 @@
   justify-content: center;
 }
 
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
  body {
   display: flex;
   justify-content: center;
   background-color: #f0f0f0;
  }
+ 
  .buttonDiv {
   display: flex;
   justify-content: center;
@@ -55,15 +62,65 @@
   align-items: center;
   border-radius: 10px;
   padding: 25px;
-  background-color: rgb(246, 246, 246);
+  background-color: rgb(249, 249, 249);
   margin: 0 50px 0 50px;
   box-shadow: 2px 2px 4px rgb(106, 106, 106), -2px 0 4px rgb(106, 106, 106);
 }
 
 .dataRow{
   border: solid;
+  border-width: 2px;
   border-radius: 5px;
   border-color: gray;
   padding: 5px;
   margin: 2px 0 2px 0;
+  width: 100%;
+
+  .dataRowField{
+    display: block;
+    padding: 10px 0 10px 0;
+  }
+
+  .dataRowCat {
+    font-size: 25px;
+  }
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .intro-header {
+    font-size: 50px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+
+  .instructions {
+    font-size: 20px;
+    margin-top: 15px;
+  }
+
+  .denoms-description {
+    font-size: 20px;
+    .denoms {
+      color : rgb(142, 87, 0);
+    }
+  }
+}
+
+.dataform-wrapper {
+  border-radius: 15px;
+  border-width: 1px;
+  margin: 20px;
+  width: 1000px;
+  background-color: rgb(249, 249, 249);
+  box-shadow: 2px 2px 4px rgb(106, 106, 106), -2px 0 4px rgb(106, 106, 106);
+}
+
+.display-text {
+  font-size: 30px;
 }

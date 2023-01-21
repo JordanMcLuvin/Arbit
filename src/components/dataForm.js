@@ -24,6 +24,7 @@ class DataForm extends Component {
     })
     .then(response => response.json())
     .then(data => {
+      window.location.reload(false);
       console.log(data)
     })
   }
@@ -35,7 +36,7 @@ class DataForm extends Component {
     }
 
     return (
-      <div>
+      <div className='dataform-wrapper'>
         {inputs}
         <div className='buttonDiv'>
         <button onClick={this.handleClick.bind(this)}>Submit</button>
