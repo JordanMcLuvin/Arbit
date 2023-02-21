@@ -30,7 +30,7 @@ function getBestArbitrage(currencies, rates) {
 
 async function getRate(from, to) {
   var myHeaders = new Headers();
-  myHeaders.append("apikey", "2YUgldjrg2NtZzAFH6MNiZaaSnZQ0Juo");
+  myHeaders.append("apikey", "");
 
   var requestOptions = {
       method: 'GET',
