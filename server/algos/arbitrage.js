@@ -1,6 +1,6 @@
 function getBestArbitrage(currencies, rates) {
-  var bestArbitrage = 1;
-  var bestPath = [];
+  let bestArbitrage = 1;
+  let bestPath = [];
 
   function helper(current_currency, arb, cumm, skip){
       if (current_currency === "USD" && skip["USD"]) {
@@ -11,12 +11,12 @@ function getBestArbitrage(currencies, rates) {
           return;
       }
 
-      for(var currency in currencies){
+      for(let currency in currencies){
           currency = currencies[currency];
           if(!skip[currency]) {
-              var s = JSON.parse(JSON.stringify(skip));
+              let s = JSON.parse(JSON.stringify(skip));
               s[currency] = true;
-              var c = JSON.parse(JSON.stringify(cumm));
+              let c = JSON.parse(JSON.stringify(cumm));
               c.push(currency);
 
               helper(currency, arb * rates[current_currency][currency], c, s);
@@ -29,10 +29,10 @@ function getBestArbitrage(currencies, rates) {
 }
 
 async function getRate(from, to) {
-  var myHeaders = new Headers();
+  let myHeaders = new Headers();
   myHeaders.append("apikey", "");
 
-  var requestOptions = {
+  let requestOptions = {
       method: 'GET',
       redirect: 'follow',
       headers: myHeaders
