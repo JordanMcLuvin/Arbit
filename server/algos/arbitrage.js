@@ -30,7 +30,7 @@ function getBestArbitrage(currencies, rates) {
 
 async function getRate(from, to) {
   let myHeaders = new Headers();
-  myHeaders.append("apikey", "");
+  myHeaders.append("apikey", process.env.API_KEY);
 
   let requestOptions = {
       method: 'GET',
@@ -43,13 +43,22 @@ async function getRate(from, to) {
 
 }
 
-async function arbitrage(currs, rates) {
+async function arbitrage(currs) {
 
-  if (!rates) {
-      const rates = {
+  let rates;
+  rates = {
+    MXN: {USD: 0.053, AUD: 0.077, EUR: 0.04944, JPY: 6.90994},
+    AUD: {USD: 0.69, MXN: 13.06, EUR: 0.64665, JPY: 90.3798},
+    USD: {MXN: 18.92, AUD: 1.45, EUR: 0.92499, JPY: 129.283},
+    EUR: {MXN: 20.2159, AUD: 1.54613, USD: 1.08093, JPY: 139.755},
+    JPY: {MXN: 0.14464, AUD: 0.01106, USD: 0.00773, EUR: 0.00715}
+  }
+
+  if (process.env.API_KEY !== "") {
+
+      rates = {
 
       };
-
   
       let index2;
       for (let index in currs) {
@@ -83,20 +92,26 @@ async function arbitrage(currs, rates) {
           }
       }
   }
+
+  console.log('testRates!!!!!!!!!', rates);
+
   result = getBestArbitrage(currs, rates);
   result[1].unshift('USD')
   return({arbitrage: result[0], path: result[1], rates: rates})
 }
 
-const rates = {
-  MXN: {USD: 0.053, AUD: 0.077, EUR: 0.04944, JPY: 6.90994},
-  AUD: {USD: 0.69, MXN: 13.06, EUR: 0.64665, JPY: 90.3798},
-  USD: {MXN: 18.92, AUD: 1.45, EUR: 0.92499, JPY: 129.283},
-  EUR: {MXN: 20.2159, AUD: 1.54613, USD: 1.08093, JPY: 139.755},
-  JPY: {MXN: 0.14464, AUD: 0.01106, USD: 0.00773, EUR: 0.00715}
-}
+// const rates = {
+//   MXN: {USD: 0.053, AUD: 0.077, EUR: 0.04944, JPY: 6.90994},
+//   AUD: {USD: 0.69, MXN: 13.06, EUR: 0.64665, JPY: 90.3798},
+//   USD: {MXN: 18.92, AUD: 1.45, EUR: 0.92499, JPY: 129.283},
+//   EUR: {MXN: 20.2159, AUD: 1.54613, USD: 1.08093, JPY: 139.755},
+//   JPY: {MXN: 0.14464, AUD: 0.01106, USD: 0.00773, EUR: 0.00715}
+// }
 
-const currs = ["JPY", "EUR", "MXN", "AUD", "USD"];
-arbitrage(currs, rates).then((data) => console.log(data));
+// const rates = process.env.API_KEY === "" ? rates : getRate
+// process.env.API_KEY === "" ? rates : getRate
+
+// const currs = ["JPY", "EUR", "MXN", "AUD", "USD"];
+// arbitrage(currs, rates).then((data) => console.log(data));
 
 module.exports = arbitrage;

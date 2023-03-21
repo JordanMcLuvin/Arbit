@@ -21,7 +21,7 @@ class DataDisplay extends Component {
   
   render() {
     const dataRows = [];
-    for(let i = 0; i < this.state.dataPoints.length; i++){
+    for(let i = this.state.dataPoints.length - 1; i > 0; i--){
       const resObj = JSON.parse(this.state.dataPoints[i].calculated)
       dataRows.push(<div key={i} className='dataRow'>{i}: <br></br>
       <span className='dataRowField'><span className='dataRowCat'>Input:</span> {this.state.dataPoints[i].input} <br></br></span>

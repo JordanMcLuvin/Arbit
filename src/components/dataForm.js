@@ -11,22 +11,31 @@ class DataForm extends Component {
   };
 
   handleClick(){
-    let payload = []; 
+    const validOptions = new Set(['USD', 'AUD', 'MXN', 'EUR', 'JPY']);
+    let payload = [];
     for(const key in this.state){
-      payload.push(this.state[key]);
+      if(this.state[key].length === 0) continue;
+      if(!validOptions.has(this.state[key].toUpperCase())) {
+        console.log('invalid option in input box');
+        payload = [];
+        break;
+      }
+      payload.push(this.state[key].toUpperCase());
     }
-    fetch('/api', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'Application/JSON'
-      },
-      body: JSON.stringify({data: payload})
-    })
-    .then(response => response.json())
-    .then(data => {
-      window.location.reload(false);
-      console.log(data)
-    })
+    if(payload.length > 0){
+      fetch('/api', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'Application/JSON'
+        },
+        body: JSON.stringify({data: payload})
+      })
+      .then(response => response.json())
+      .then(data => {
+        // window.location.reload(false);
+        console.log(data)
+      })
+    }
   }
 
   render() {

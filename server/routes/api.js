@@ -1,6 +1,5 @@
 const fs = require('fs');
 const express = require('express');
-// const { mongo, Mongoose } = require('mongoose');
 const dataController = require('../controllers/dataController');
 
 const router = express.Router();
