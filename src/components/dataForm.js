@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { validCurrencySet } from '../../public/validCurrencies';
 
 class DataForm extends Component {
   constructor(props) {
@@ -11,11 +12,10 @@ class DataForm extends Component {
   };
 
   handleClick(){
-    const validOptions = new Set(['USD', 'AUD', 'MXN', 'EUR', 'JPY']);
     let payload = [];
     for(const key in this.state){
       if(this.state[key].length === 0) continue;
-      if(!validOptions.has(this.state[key].toUpperCase())) {
+      if(!validCurrencySet.has(this.state[key].toUpperCase())) {
         console.log('invalid option in input box');
         payload = [];
         break;
@@ -32,7 +32,7 @@ class DataForm extends Component {
       })
       .then(response => response.json())
       .then(data => {
-        // window.location.reload(false);
+        window.location.reload(false);
         console.log(data)
       })
     }

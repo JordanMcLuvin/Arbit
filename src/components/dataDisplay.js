@@ -27,7 +27,7 @@ class DataDisplay extends Component {
       <span className='dataRowField'><span className='dataRowCat'>Input:</span> {this.state.dataPoints[i].input} <br></br></span>
       <span className='dataRowField'><span className='dataRowCat'>Arbitrage:</span> {resObj.arbitrage}<br></br></span>
       <span className='dataRowField'><span className='dataRowCat'>Path:</span> {JSON.stringify(resObj.path)}<br></br></span>
-      <span className='dataRowField'><span className='dataRowCat'>Rates:</span>  {JSON.stringify(resObj.rates)}</span></div>)
+      <span className='dataRowField'><span className='dataRowCat'>Rates:</span> {JSON.stringify(resObj.rates)}</span></div>)
     }
     return (
       <div className='infoDisplay'>
