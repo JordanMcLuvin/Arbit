@@ -65,6 +65,7 @@
   background-color: rgb(249, 249, 249);
   margin: 0 50px 0 50px;
   box-shadow: 2px 2px 4px rgb(106, 106, 106), -2px 0 4px rgb(106, 106, 106);
+  width: 90vw;
 }
 
 .dataRow{
@@ -75,6 +76,7 @@
   padding: 5px;
   margin: 2px 0 2px 0;
   width: 100%;
+  overflow-wrap: break-word;
 
   .dataRowField{
     display: block;
@@ -106,9 +108,11 @@
 
   .denoms-description {
     font-size: 20px;
-    .denoms {
-      color : rgb(142, 87, 0);
-    }
+  }
+
+  .denoms {
+    width: 90vw;
+    color : rgb(142, 87, 0);
   }
 }
 
@@ -116,7 +120,7 @@
   border-radius: 15px;
   border-width: 1px;
   margin: 20px;
-  width: 1000px;
+  width: 90vw;
   background-color: rgb(249, 249, 249);
   box-shadow: 2px 2px 4px rgb(106, 106, 106), -2px 0 4px rgb(106, 106, 106);
 }
