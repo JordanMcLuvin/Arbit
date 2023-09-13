@@ -11,4 +11,3 @@ MONGO_URI="mongodb+srv://host:<password>@cluster*.*******.mongodb.net/"
 The line of code could be similar to the above line. The above URI is based off one given by a hosted database on the mongodb website. You are simply assigning the MONGO_URI variable to the proper URI.
 
 3. run npm start in your terminal to boot up the server.
-4. 
